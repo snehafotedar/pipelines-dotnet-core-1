@@ -26,3 +26,12 @@ steps:
     command: test
     projects: '**/*tests/*.csproj'
     arguments: '--configuration $(buildConfiguration)'    
+# ...
+# do this after other tasks such as building
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*tests/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+
+
